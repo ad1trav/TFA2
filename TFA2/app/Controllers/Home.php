@@ -34,14 +34,13 @@ class Home extends BaseController
 {
     $usersDB = \Config\Database::connect('default');
 
-      $users = $usersDB->table('users')
-                     ->countAllResults();
+    $users = $usersDB->table('users')
+                     ->orderBy('id', 'ASC')
+                     ->get()
+                     ->getResultArray();
 
-    return $this->response->setJSON([
-        'users_database' => $usersDB->getDatabase(),
-        'users_count' => $users,
-
-       
+    return view('users/index', [
+        'users' => $users
     ]);
 }
 }

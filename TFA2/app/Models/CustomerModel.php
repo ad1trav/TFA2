@@ -9,7 +9,7 @@ class CustomerModel extends Model
     protected $table = 'customers';
     protected $primaryKey = 'id';
     protected $returnType = 'array';
-    protected $allowedFields = ['name', 'email', 'phone'];
+    protected $allowedFields = ['full_name', 'email', 'phone'];
 
     protected $usetimestamps = false;
 }
